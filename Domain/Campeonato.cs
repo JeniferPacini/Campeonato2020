@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain
 {
@@ -18,13 +19,13 @@ namespace Domain
             this.Times = new List<Time>();
         }
 
-        public void AddConfronto(Time timeCasa, Time timeVisitante)
+        public void AdicionarConfronto(Time timeCasa, Time timeVisitante)
         {
             Confronto confronto = new Confronto(timeCasa, timeVisitante);
             this.Confrontos.Add(confronto);
         }
         
-        public void AddTime(string nome)
+        public void AdicionarTime(string nome)
         {
             Time time = new Time(nome);
             this.Times.Add(time);
@@ -36,13 +37,17 @@ namespace Domain
             {
                 return false;
             }
-            for(int i = 0; i < this.Times.Count; i++)
+            var listaTimes = new Time[Times.Count];
+            listaTimes.CopyTo(Times.ToArray(),0);
+            for(int i = 0; i < listaTimes.Length; i++)
             {
-                for(int j = 0; j < this.Times.Count; j++)
+                for(int j = 0; j < listaTimes.Length; j++)
                 {
-                    if(this.Times[i].Id != this.Times[j].Id)
+                    if(listaTimes[i].Id != listaTimes[j].Id && listaTimes[i] != null && listaTimes[j] != null)
                     {
-                        AddConfronto(this.Times[i],this.Times[j]);
+                        AdicionarConfronto(listaTimes[i],listaTimes[j]);
+                        listaTimes[i] = null;
+                        listaTimes[j] = null;
                     }
                 }
             }

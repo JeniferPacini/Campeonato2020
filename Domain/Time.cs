@@ -53,6 +53,16 @@ namespace Domain
             jogador.Time = null;
             return true;
         }
+
+        public void AdicionarGol()
+        {
+            GolsPro++;
+        }
+
+        public void LevarGol()
+        {
+            GolsContra++;
+        }
     }
 
 

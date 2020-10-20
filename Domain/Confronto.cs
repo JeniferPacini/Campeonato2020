@@ -8,90 +8,63 @@ namespace Domain
         public Guid Id {get; private set;}
         public Time TimeCasa {get; private set;}
         public Time TimeVisitante {get; private set;}
-        public List<Gol> Gol {get; private set;}
+        public int GolsTimeCasa {get; private set;}
+        public int GolsTimeVisitante {get; private set;}
 
         public Confronto (Time timeCasa, Time timeVisitante)
         {
             this.Id =  new Guid();
             this.TimeCasa = timeCasa;
             this.TimeVisitante = timeVisitante;
-            this.Gol = new List<Gol>();
         }
 
-        public void AddGol(Jogador jogador, bool contra)
+        public void AdicionarGol(Jogador jogador)
         {
-            Gol gol = new Gol(jogador,contra);
-            this.Gol.Add(gol);
+            if(jogador.Time.Id == TimeCasa.Id)
+            { 
+                this.GolsTimeCasa++;
+                TimeVisitante.LevarGol();
+            }
+            else
+            {
+                this.GolsTimeVisitante++;
+                TimeCasa.LevarGol();
+
+            }
+            jogador.Time.AdicionarGol();
+            jogador.AdicionarGol(); 
         }
 
         public void ProcessarResultado()
         {
-            var golsTimeCasa = 0;
-            var golsTimeVisitante = 0;
-            for( int i = 0; i < this.Gol.Count; i++)
-            {
-                if( this.Gol[i].Time.Id == this.TimeCasa.Id )
-                {
-                    if(!this.Gol[i].Contra)
-                    {
-                        golsTimeCasa++;
-                    }
-                    else
-                    {
-                        golsTimeVisitante++;
-                    }
-                }
-                else
-                {
-                    if(!this.Gol[i].Contra)
-                    {
-                        golsTimeVisitante++;
-                    }
-                    else
-                    {
-                        golsTimeCasa++;
-                    }
-                }
-            }
-            if( golsTimeCasa > golsTimeVisitante )
+            
+            if( GolsTimeCasa > GolsTimeVisitante )
             {
                 this.TimeCasa.Vitorias++;
                 this.TimeCasa.Pontuacao += 3;
                 this.TimeCasa.PartidasDisputadas++;
-                this.TimeCasa.golsPro += golsTimeCasa;
-                this.TimeCasa.golsContra += golsTimeVisitante;
 
-                this.Timevisitante.PartidasDisputadas++;
+                this.TimeVisitante.PartidasDisputadas++;
                 this.TimeVisitante.Derrotas++;
-                this.TimeVisitante.golsPro += golsTimeVisitante;
-                this.TimeVisitante.golsContra += golsTimeCasa;
             }
-            if( golsTimeCasa < golsTimeVisitante )
+            if( GolsTimeCasa < GolsTimeVisitante )
             {
                 this.TimeVisitante.Vitorias++;
                 this.TimeVisitante.Pontuacao += 3;
                 this.TimeVisitante.PartidasDisputadas++;
-                this.TimeVisitante.golsPro += golsTimeVisitante;
-                this.TimeVisitante.golsContra += golsTimeCasa;
 
                 this.TimeCasa.PartidasDisputadas++;
                 this.TimeCasa.Derrotas++;
-                this.TimeCasa.golsPro += golsTimeCasa;
-                this.TimeCasa.golsContra += golsTimeVisitante;
             }
             else
             {
                 this.TimeCasa.Pontuacao++;
                 this.TimeCasa.Empates++;
                 this.TimeCasa.PartidasDisputadas++;
-                this.TimeCasa.golsPro += golsTimeCasa;
-                this.TimeCasa.golsContra += golsTimeVisitante;
 
                 this.TimeVisitante.Pontuacao++;
                 this.TimeVisitante.Empates++;
                 this.TimeVisitante.PartidasDisputadas++;
-                this.TimeVisitante.golsPro += golsTimeVisitante;
-                this.TimeVisitante.golsContra += golsTimeCasa;
             }
         }
 
