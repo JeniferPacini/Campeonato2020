@@ -9,6 +9,8 @@ namespace Domain
         public string Nome{get; private set;}
         public int GolsJogador{get; private set;}
 
+        public int GolsContra{get; private set;}
+
         public Jogador (string nome)
         {
             this.Id =  new Guid();
@@ -20,6 +22,11 @@ namespace Domain
         public void AdicionarGol()
         {
             GolsJogador++;
+        }
+
+        public void FazGolContra()
+        {
+            GolsContra++;
         }
     }
 }

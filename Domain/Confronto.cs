@@ -18,21 +18,43 @@ namespace Domain
             this.TimeVisitante = timeVisitante;
         }
 
-        public void AdicionarGol(Jogador jogador)
+        public void AdicionarGol(Jogador jogador, bool contra)
         {
             if(jogador.Time.Id == TimeCasa.Id)
             { 
-                this.GolsTimeCasa++;
-                TimeVisitante.LevarGol();
+                if(!contra)
+                {
+                    this.GolsTimeCasa++;
+                    TimeVisitante.LevarGol();
+                    jogador.Time.AdicionarGol();
+                    jogador.AdicionarGol(); 
+                } 
+                else
+                {
+                    this.GolsTimeVisitante++;
+                    TimeVisitante.AdicionarGol();
+                    TimeCasa.LevarGol();
+                    jogador.FazGolContra();
+                }   
             }
             else
             {
-                this.GolsTimeVisitante++;
-                TimeCasa.LevarGol();
+                if(!contra)
+                {
+                    this.GolsTimeVisitante++;
+                    TimeCasa.LevarGol();
+                    jogador.Time.AdicionarGol();
+                    jogador.AdicionarGol(); 
+                } 
+                else
+                {
+                    this.GolsTimeCasa++;
+                    TimeCasa.AdicionarGol();
+                    TimeVisitante.LevarGol();
+                    jogador.FazGolContra();
+                }   
 
             }
-            jogador.Time.AdicionarGol();
-            jogador.AdicionarGol(); 
         }
 
         public void ProcessarResultado()
