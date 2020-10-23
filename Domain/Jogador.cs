@@ -8,7 +8,6 @@ namespace Domain
         public Time Time{get; set;}
         public string Nome{get; private set;}
         public int GolsJogador{get; private set;}
-
         public int GolsContra{get; private set;}
 
         public Jogador (string nome)
@@ -17,6 +16,7 @@ namespace Domain
             this.Nome = nome;
             this.Time = null;
             this.GolsJogador = 0;
+            this.GolsContra = 0;
         }
 
         public void AdicionarGol()

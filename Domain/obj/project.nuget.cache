@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1ip0Vv9RA8tfVLWGY6dqaSIrHoAVCAeeqVkkhl38esKYFRpwq2DBqE0IsiMDVeRL+vsJ0aRR0lWcOg4j6UH3mQ==",
+  "dgSpecHash": "85O3xmXnYtyaITe9iRkHbnQ76F3Hm0I1B6L7uzQjEhnQqwrzq/4TyYOPYsdk21XWfPdnUNQgEUPRaJlKMJ0jBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Felipe\\Campeonato2020\\Domain\\Domain.csproj",
+  "projectFilePath": "P:\\Raul C#\\Campeonato2020\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

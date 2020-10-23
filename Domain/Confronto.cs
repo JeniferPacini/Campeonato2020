@@ -56,38 +56,25 @@ namespace Domain
 
             }
         }
-
         public void ProcessarResultado()
         {
             
             if( GolsTimeCasa > GolsTimeVisitante )
             {
-                this.TimeCasa.Vitorias++;
-                this.TimeCasa.Pontuacao += 3;
-                this.TimeCasa.PartidasDisputadas++;
-
-                this.TimeVisitante.PartidasDisputadas++;
-                this.TimeVisitante.Derrotas++;
+                this.TimeCasa.ReceberVitoria();
+                this.TimeVisitante.AdicionarDerrotas();
             }
             if( GolsTimeCasa < GolsTimeVisitante )
             {
-                this.TimeVisitante.Vitorias++;
-                this.TimeVisitante.Pontuacao += 3;
-                this.TimeVisitante.PartidasDisputadas++;
-
-                this.TimeCasa.PartidasDisputadas++;
-                this.TimeCasa.Derrotas++;
+                this.TimeVisitante.ReceberVitoria();
+                this.TimeCasa.AdicionarDerrotas();
             }
             else
             {
-                this.TimeCasa.Pontuacao++;
-                this.TimeCasa.Empates++;
-                this.TimeCasa.PartidasDisputadas++;
-
-                this.TimeVisitante.Pontuacao++;
-                this.TimeVisitante.Empates++;
-                this.TimeVisitante.PartidasDisputadas++;
+                this.TimeCasa.AdicionarEmpate();
+                this.TimeVisitante.AdicionarEmpate();
             }
+            
         }
 
     }

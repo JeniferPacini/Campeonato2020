@@ -9,13 +9,13 @@ namespace Domain
         public Guid Id {get; private set;}
         public string Nome {get; private set;}
         public List<Jogador> Jogadores {get; private set;}
-        public int Pontuacao {get; set;} = 0;
-        public int PartidasDisputadas {get; set;} = 0;
-        public int Vitorias {get; set;} = 0;
-        public int Derrotas {get; set;} = 0;
-        public int Empates {get; set;} = 0;
-        public int GolsPro {get; set;} = 0;
-        public int GolsContra {get; set;} = 0;
+        public int Pontuacao {get; private set;} = 0;
+        public int PartidasDisputadas {get; private set;} = 0;
+        public int Vitorias {get; private set;} = 0;
+        public int Derrotas {get; private set;} = 0;
+        public int Empates {get; private set;} = 0;
+        public int GolsPro {get; private set;} = 0;
+        public int GolsContra {get; private set;} = 0;
         public int SaldoGols 
         { 
             get { return GolsPro - GolsContra; }
@@ -32,7 +32,7 @@ namespace Domain
             this.Jogadores = new List<Jogador>();
         }
 
-        public bool AddJogador(Jogador jogador)
+        public bool AdicionarJogador(Jogador jogador)
         {
             if((this.Jogadores.Count == 32) || (jogador.Time != null))
             {
@@ -63,7 +63,25 @@ namespace Domain
         {
             GolsContra++;
         }
+
+        public void ReceberVitoria()
+        {
+            Vitorias++;
+            PartidasDisputadas++;
+            Pontuacao += 3;
+        }
+
+        public void AdicionarDerrotas()
+        {
+            Derrotas++;
+            PartidasDisputadas++;
+        }
+
+        public void AdicionarEmpate()
+        {
+            Empates++;
+            Pontuacao++;
+            PartidasDisputadas++;
+        }
     }
-
-
 }

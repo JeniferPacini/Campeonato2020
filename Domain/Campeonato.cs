@@ -10,6 +10,7 @@ namespace Domain
         public string Nome{get; private set;}
         public List<Confronto> Confrontos {get; private set;}
         public List<Time> Times {get; private set;}
+        public List<Time> Ranking {get; private set;}
 
         public Campeonato (string nome)
         {
@@ -17,9 +18,10 @@ namespace Domain
             this.Nome = nome;
             this.Confrontos = new List<Confronto>();
             this.Times = new List<Time>();
+            this.Ranking = new List<Time>();
         }
 
-        public void AdicionarConfronto(Time timeCasa, Time timeVisitante)
+        private void AdicionarConfronto(Time timeCasa, Time timeVisitante)
         {
             Confronto confronto = new Confronto(timeCasa, timeVisitante);
             this.Confrontos.Add(confronto);
@@ -29,6 +31,7 @@ namespace Domain
         {
             Time time = new Time(nome);
             this.Times.Add(time);
+            this.Ranking.Add(time);
         }
 
         public bool GerarConfrontos()
@@ -54,7 +57,19 @@ namespace Domain
             return true;
         }
 
-
+        public void FinalizarRodada()
+        {
+            for(int i = 1; i < Times.Count; i++)
+            {
+                for (int j = 0; j < Ranking.Count; j++)
+                {
+                    if(Times[i].Pontuacao > Ranking[j].Pontuacao)
+                    {
+                        
+                    }
+                }
+            }
+        }
         
     }
 }
