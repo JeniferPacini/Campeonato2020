@@ -14,9 +14,5 @@ namespace Domain
             this.Nome = nome;
             this.CBF = cbf; 
         }
-
-        
     }
-
-
 }

@@ -34,7 +34,7 @@ namespace Domain
                     this.GolsTimeVisitante++;
                     TimeVisitante.AdicionarGol();
                     TimeCasa.LevarGol();
-                    jogador.FazGolContra();
+                    jogador.AdicionarGolContra();
                 }   
             }
             else
@@ -51,7 +51,7 @@ namespace Domain
                     this.GolsTimeCasa++;
                     TimeCasa.AdicionarGol();
                     TimeVisitante.LevarGol();
-                    jogador.FazGolContra();
+                    jogador.AdicionarGolContra();
                 }   
 
             }

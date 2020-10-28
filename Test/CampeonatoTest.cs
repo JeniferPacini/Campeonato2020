@@ -19,13 +19,12 @@ namespace Test
             var times = GeradorDeTimesCompleto();
 
             // Quando / Ação
-            var created = jogador.CreateCandidates(candidates, "incorrect");
+            //var created = jogador.CreateCandidates(candidates, "incorrect");
 
             // Deve / Asserções
         }
         
         // Mocks
-
         public List<Time> GeradorDeTimesCompleto()
         {
             var flu = new Time("Fluminense");
@@ -60,8 +59,7 @@ namespace Test
 
             return listaTimes;
         }
-
-        public void AdicionarJogadoresFlu(Time flu)
+        private void AdicionarJogadoresFlu(Time flu)
         {
             flu.Jogadores.Add(new Jogador("Santos"));
             flu.Jogadores.Add(new Jogador("Leo Gomes"));
@@ -87,8 +85,7 @@ namespace Test
             flu.Jogadores.Add(new Jogador("Alvarado"));
             flu.Jogadores.Add(new Jogador("Walter"));
         }
-
-        public void AdicionarJogadoresSao(Time sao)
+        private void AdicionarJogadoresSao(Time sao)
         {
             sao.Jogadores.Add(new Jogador("Jean"));
             sao.Jogadores.Add(new Jogador("Dudu"));
@@ -110,8 +107,7 @@ namespace Test
             sao.Jogadores.Add(new Jogador("Wellington Rato"));
             sao.Jogadores.Add(new Jogador("Junior Brandão"));
         }
-
-        public void AdicionarJogadoresVas(Time vas)
+        private void AdicionarJogadoresVas(Time vas)
         {
             vas.Jogadores.Add(new Jogador("Éverson"));
             vas.Jogadores.Add(new Jogador("Guga"));
@@ -137,8 +133,7 @@ namespace Test
             vas.Jogadores.Add(new Jogador("Marrony"));
             vas.Jogadores.Add(new Jogador("Marquinhos"));
         }
-
-        public void AdicionarJogadoresCor(Time cor)
+        private void AdicionarJogadoresCor(Time cor)
         {
             cor.Jogadores.Add(new Jogador("Douglas Friedrich"));
             cor.Jogadores.Add(new Jogador("Ernando"));
@@ -164,8 +159,7 @@ namespace Test
             cor.Jogadores.Add(new Jogador("Gilberto"));
             cor.Jogadores.Add(new Jogador("Saldanha"));
         }
-
-        public void AdicionarJogadoresFla(Time fla)
+        private void AdicionarJogadoresFla(Time fla)
         {
             fla.Jogadores.Add(new Jogador("Hugo Souza"));
             fla.Jogadores.Add(new Jogador("Diego Alves"));
@@ -199,7 +193,7 @@ namespace Test
             fla.Jogadores.Add(new Jogador("Pedro Rocha"));
             fla.Jogadores.Add(new Jogador("Michael"));  
         }
-        public void AdicionarJogadoresPal(Time pal)
+        private void AdicionarJogadoresPal(Time pal)
         {
             pal.Jogadores.Add(new Jogador("Diego Cavalieri"));
             pal.Jogadores.Add(new Jogador("Kevin"));
@@ -224,8 +218,8 @@ namespace Test
             pal.Jogadores.Add(new Jogador("Lecaros"));
             pal.Jogadores.Add(new Jogador("Warley"));
             pal.Jogadores.Add(new Jogador("Davi Araujo"));
-        }           
-        public void AdicionarJogadoresBot(Time bot)
+        }       
+        private void AdicionarJogadoresBot(Time bot)
         {
             bot.Jogadores.Add(new Jogador("Cleiton"));
             bot.Jogadores.Add(new Jogador("Aderlan"));
@@ -248,8 +242,8 @@ namespace Test
             bot.Jogadores.Add(new Jogador("Fabricio Brunno"));
             bot.Jogadores.Add(new Jogador("Chirgor"));
             bot.Jogadores.Add(new Jogador("Morato"));
-        }                   
-        public void AdicionarJogadoresSan(Time san)
+        }                
+        private void AdicionarJogadoresSan(Time san)
         {
             san.Jogadores.Add(new Jogador("Fernando Prass"));
             san.Jogadores.Add(new Jogador("Fabinho"));
@@ -272,7 +266,6 @@ namespace Test
             san.Jogadores.Add(new Jogador("Marthã"));
             san.Jogadores.Add(new Jogador("Felipe Baixola"));
             san.Jogadores.Add(new Jogador("Wescley"));
-        }     
-
+        }
     }
 }

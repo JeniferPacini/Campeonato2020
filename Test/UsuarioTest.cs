@@ -14,29 +14,15 @@ namespace Test
             //var campeonato = new Campeonato();
             var cbf = new Usuario("Jenifer Pacini", true);
             var torcedor = new Usuario("Afonso Padilha", false);
-            var usuario = new List<Usuario>{cbf,torcedor};
-
-            Time[0].Jogador.Add()
-
-            // var flu = new Time("Fluminense");
-            // var sao = new Time("São Paulo");
-            // var vas = new Time("Vasco");
-            // var cor = new Time("Corintians");
-            // var fla = new Time("Flamengo");
-            // var pal = new Time("Palmeiras");
-            // var bot = new Time("Botafogo");
-            // var san = new Time("Santos");
-            // var gre = new Time("Gremio");
-            // var times = new List<Time>{flu,sao,vas,cor,fla,pal,san,gre};
-
-            var cbf = new Usuario("Jenifer Pacini", true);
-            var torcedor = new Usuario("Afonso Padilha", false);
-            var usuario = new List<Usuario>{cbf,torcedor};
-
+            
             // Quando / Ação
-            var created = jogador.CreateCandidates(candidates, "incorrect");
+            var usuario = new List<Usuario>{cbf,torcedor};
 
             // Deve / Asserções
+            Assert.Equal("Jenifer Pacini",usuario[0].Nome);
+            Assert.Equal("Afonso Padilha",usuario[1].Nome);
+            Assert.True(usuario[0].CBF);
+            Assert.False(usuario[1].CBF);
         }
     }
 }
