@@ -39,24 +39,27 @@ namespace Domain
             {
                 return false;
             }
-            List<Time> listaTimes;
-            for (int i = 0; i < Times.Count; i++)
-            {
-                
-            }
+            //List<Time> listaTimes;
+            // for (int i = 0; i < Times.Count; i++)
+            // {
+            //     if(Time[i].Valido)
+            //     {
+            //         listaTimes.Add(Time[i]);
+            //     }
+            // }
             //listaTimes.CopyTo(Times.ToArray(),0);
-            for(int i = 0; i < listaTimes.Length; i++)
-            {
-                for(int j = 0; j < listaTimes.Length; j++)
-                {
-                    if(listaTimes[i].Id != listaTimes[j].Id && listaTimes[i] != null && listaTimes[j] != null)
-                    {
-                        AdicionarConfronto(listaTimes[i],listaTimes[j]);
-                        listaTimes[i] = null;
-                        listaTimes[j] = null;
-                    }
-                }
-            }
+            // for(int i = 0; i < listaTimes.Length; i++)
+            // {
+            //     for(int j = 0; j < listaTimes.Length; j++)
+            //     {
+            //         if(listaTimes[i].Id != listaTimes[j].Id && listaTimes[i] != null && listaTimes[j] != null)
+            //         {
+            //             AdicionarConfronto(listaTimes[i],listaTimes[j]);
+            //             listaTimes[i] = null;
+            //             listaTimes[j] = null;
+            //         }
+            //     }
+            // }
             return true;
         }
 

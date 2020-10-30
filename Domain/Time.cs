@@ -16,6 +16,7 @@ namespace Domain
         public int Empates {get; private set;} = 0;
         public int GolsPro {get; private set;} = 0;
         public int GolsContra {get; private set;} = 0;
+        public bool Valido {get; private set;} = false;
         public int SaldoGols 
         { 
             get { return GolsPro - GolsContra; }

@@ -1,22 +1,29 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Domain.Usuarios;
+using WebAPI.Controllers.Users;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Domain.Usuario;
 
-namespace WebAPI.Controllers
+namespace WebAPI.Controllers.Usuarios
 {
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        [HttpPost]
-        public string Post(CreateUserRequest request)
+        // [HttpPost]
+        // public string Post(CreateUserRequest request)
+        // {
+        //     var usuario = new Usuario(request.Nome, request.CBF);
+        //     return usuario.Nome;
+        // }
+        [HttpGet]
+        public List<Usuario> Get()
         {
-            var usuario = new Usuario(request.Nome);
-            return usuario.Nome;
+            var usuario = new Usuario
+            (
+                "Afonso",
+                false
+            );
+            return new List<Usuario>{usuario};
         }
     }
 }
