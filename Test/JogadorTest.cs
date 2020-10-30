@@ -46,5 +46,20 @@ namespace Test
             Assert.Equal(5, kaka.Gols);
             Assert.Equal(0,kaka.GolsContra);
         }
+
+        [Fact]
+        public void Deve_adicionar_2_gols_contra_para_kaka()
+        {
+            // Dado / Setup
+            var kaka = new Jogador("Kaka");
+            
+            // Quando / Ação
+            kaka.AdicionarGolContra();
+            kaka.AdicionarGolContra();
+
+            // Deve / Asserções
+            Assert.Equal(2, kaka.GolsContra);
+            Assert.Equal(0,kaka.Gols);
+        }
     }
 }

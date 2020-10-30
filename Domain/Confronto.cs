@@ -8,8 +8,8 @@ namespace Domain
         public Guid Id {get; private set;}
         public Time TimeCasa {get; private set;}
         public Time TimeVisitante {get; private set;}
-        public int GolsTimeCasa {get; private set;}
-        public int GolsTimeVisitante {get; private set;}
+        public int GolsTimeCasa {get; private set;} = 0;
+        public int GolsTimeVisitante {get; private set;} = 0;
 
         public Confronto (Time timeCasa, Time timeVisitante)
         {

@@ -27,9 +27,8 @@ namespace Domain
             this.Confrontos.Add(confronto);
         }
         
-        public void AdicionarTime(string nome)
+        public void AdicionarTime(Time time)
         {
-            Time time = new Time(nome);
             this.Times.Add(time);
             this.Ranking.Add(time);
         }
@@ -40,8 +39,12 @@ namespace Domain
             {
                 return false;
             }
-            var listaTimes = new Time[Times.Count];
-            listaTimes.CopyTo(Times.ToArray(),0);
+            List<Time> listaTimes;
+            for (int i = 0; i < Times.Count; i++)
+            {
+                
+            }
+            //listaTimes.CopyTo(Times.ToArray(),0);
             for(int i = 0; i < listaTimes.Length; i++)
             {
                 for(int j = 0; j < listaTimes.Length; j++)
