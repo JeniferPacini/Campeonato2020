@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Domain.Jogadores;
 
 namespace Domain
 {
@@ -28,7 +29,8 @@ namespace Domain
 
         public Time (string nome)
         {
-            this.Id =  new Guid();
+            this.Id = Guid.NewGuid();
+            
             this.Nome = nome;
             this.Jogadores = new List<Jogador>();
         }

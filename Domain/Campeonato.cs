@@ -14,7 +14,7 @@ namespace Domain
 
         public Campeonato (string nome)
         {
-            this.Id =  new Guid();
+            this.Id = Guid.NewGuid();
             this.Nome = nome;
             this.Confrontos = new List<Confronto>();
             this.Times = new List<Time>();

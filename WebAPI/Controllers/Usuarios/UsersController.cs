@@ -2,6 +2,7 @@
 using Domain.Usuarios;
 using WebAPI.Controllers.Users;
 using System.Collections.Generic;
+using System;
 
 namespace WebAPI.Controllers.Usuarios
 {
@@ -9,21 +10,39 @@ namespace WebAPI.Controllers.Usuarios
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        // [HttpPost]
-        // public string Post(CreateUserRequest request)
-        // {
-        //     var usuario = new Usuario(request.Nome, request.CBF);
-        //     return usuario.Nome;
-        // }
-        [HttpGet]
-        public List<Usuario> Get()
+        private readonly ServicoUsuarios _servicoUsuarios;
+
+        public UsersController()
         {
-            var usuario = new Usuario
-            (
-                "Afonso",
-                false
-            );
-            return new List<Usuario>{usuario};
+            _servicoUsuarios = new ServicoUsuarios();
         }
+
+        [HttpPost]
+        public IActionResult Create(CreateUserRequest request)
+        {
+            if(request.CBF && request.Password != "admin123")
+            {
+                return Unauthorized();
+            }
+    
+            var resposta = _servicoUsuarios.Create(request.Nome,request.CBF);
+
+            if(!resposta.Valido)
+            {
+                return BadRequest(resposta.Erros);
+            }
+
+            return Ok(resposta.Id);
+        }
+        // [HttpGet]
+        // public List<Usuario> Get()
+        // {
+        //     var usuario = new Usuario
+        //     (
+        //         "Afonso",
+        //         false
+        //     );
+        //     return new List<Usuario>{usuario};
+        // }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain
+namespace Domain.Jogadores
 {
     public class Jogador
     {
@@ -12,7 +12,7 @@ namespace Domain
 
         public Jogador (string nome)
         {
-            this.Id =  new Guid();
+            this.Id = Guid.NewGuid();
             this.Nome = nome;
             this.Time = null;
             this.Gols= 0;

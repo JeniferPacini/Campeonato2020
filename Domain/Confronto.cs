@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Domain.Jogadores;
 
 namespace Domain
 {
@@ -13,7 +14,7 @@ namespace Domain
 
         public Confronto (Time timeCasa, Time timeVisitante)
         {
-            this.Id =  new Guid();
+            this.Id = Guid.NewGuid();
             this.TimeCasa = timeCasa;
             this.TimeVisitante = timeVisitante;
         }
