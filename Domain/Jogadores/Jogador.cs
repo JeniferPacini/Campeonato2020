@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Domain.Jogadores
 {
@@ -27,6 +28,44 @@ namespace Domain.Jogadores
         public void AdicionarGolContra()
         {
             GolsContra++;
+        }
+
+        private bool ValidarNome()
+        {
+            if (string.IsNullOrEmpty(Nome))
+            {
+                return false;
+            }
+
+            var words = Nome.Split(' ');
+            if (words.Length < 2)
+            {
+                return false;
+            }
+
+            foreach (var word in words)
+            {
+                if (word.Trim().Length < 2)
+                {
+                    return false;
+                }
+                if (word.Any(x => !char.IsLetter(x)))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    
+        public (IList<string> erros, bool valido) Validar()
+        {
+            var erros = new List<string>();
+            if (!ValidarNome())
+            {
+                erros.Add("Nome inválido.");
+            }
+            return (erros, erros.Count == 0);
         }
     }
 }
