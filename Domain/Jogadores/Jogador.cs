@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Domain.Jogadores
@@ -18,16 +19,6 @@ namespace Domain.Jogadores
             this.Time = null;
             this.Gols= 0;
             this.GolsContra = 0;
-        }
-
-        public void AdicionarGol()
-        {
-            Gols++;
-        }
-
-        public void AdicionarGolContra()
-        {
-            GolsContra++;
         }
 
         private bool ValidarNome()
@@ -66,6 +57,16 @@ namespace Domain.Jogadores
                 erros.Add("Nome inválido.");
             }
             return (erros, erros.Count == 0);
+        }
+
+        public void AdicionarGol()
+        {
+            Gols++;
+        }
+
+        public void AdicionarGolContra()
+        {
+            GolsContra++;
         }
     }
 }

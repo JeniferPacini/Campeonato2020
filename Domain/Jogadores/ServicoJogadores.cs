@@ -1,15 +1,19 @@
-﻿using System;
-using Domain.Jogadores;
-
-namespace Domain.Jogadores
+﻿namespace Domain.Jogadores
 {
     public class ServicoJogadores
     {
-        public Guid Create(string nome)
+        public CriarJogadorDto Create(string nome)
         {
             var jogador = new Jogador(nome);
-            RepositorioJogadores.Add(jogador);
-            return jogador.Id;
+            var validacaoJogador = jogador.Validar();
+
+            if(validacaoJogador.valido)
+            {
+                RepositorioJogadores.Add(jogador);
+                return new CriarJogadorDto(jogador.Id);
+            }
+
+            return new CriarJogadorDto(validacaoJogador.erros);
         }
     }
 }

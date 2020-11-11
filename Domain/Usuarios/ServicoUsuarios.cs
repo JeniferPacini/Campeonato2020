@@ -1,4 +1,7 @@
-﻿namespace Domain.Usuarios
+﻿using System;
+using System.Linq;
+
+namespace Domain.Usuarios
 {
     public class ServicoUsuarios
     {
@@ -14,6 +17,11 @@
             }
 
             return new CriarUsuarioDto(validacaoUsuario.erros);
+        }
+
+        public Usuario GetById(Guid id)
+        {
+            return RepositorioUsuarios.Usuarios.FirstOrDefault(x => x.Id == id);
         }
     }
 }
