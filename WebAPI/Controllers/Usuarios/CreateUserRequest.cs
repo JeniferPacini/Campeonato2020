@@ -1,10 +1,8 @@
-﻿using Domain.Usuarios;
-
-namespace WebAPI.Controllers.Users
+﻿namespace WebAPI.Controllers.Users
 {
     public class CreateUserRequest
     {
-        public string Nome { get; set; }
+        public string Name { get; set; }
         public bool CBF { get; set; }
         public string Password { get; set; }
     }

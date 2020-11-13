@@ -1,7 +1,6 @@
-using System;
 using Xunit;
 using Domain;
-using System.Collections.Generic;
+using Domain.Teams;
 
 namespace Test
 {
@@ -11,21 +10,21 @@ namespace Test
         public void Deve_criar_confronto()
         {
             // Dado / Setup
-            var pal = new Time("Palmeiras");
-            var sao = new Time("São Paulo");
-            var san = new Time("Santos");
-            var flu = new Time("Fluminense");
-            var fla = new Time("Flamengo");
-            var cor = new Time("Corintians");
+            var pal = new Team("Palmeiras");
+            var sao = new Team("São Paulo");
+            var san = new Team("Santos");
+            var flu = new Team("Fluminense");
+            var fla = new Team("Flamengo");
+            var cor = new Team("Corintians");
             
             // Quando / Ação
-            var confronto = new Confronto(pal,sao);
+            var match = new Match(pal,sao);
 
             // Deve / Asserções
-            Assert.Equal("Palmeiras", confronto.TimeCasa.Nome);
-            Assert.Equal("São Paulo", confronto.TimeVisitante.Nome);
-            Assert.Equal(0, confronto.GolsTimeCasa);
-            Assert.Equal(0, confronto.GolsTimeVisitante);
+            Assert.Equal("Palmeiras", match.HomeTeam.Name);
+            Assert.Equal("São Paulo", match.VisitingTeam.Name);
+            Assert.Equal(0, match.GoalsHomeTeam);
+            Assert.Equal(0, match.GoalsVisitingTeam);
         }
     }
 }

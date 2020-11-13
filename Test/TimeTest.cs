@@ -1,7 +1,6 @@
-using System;
 using Xunit;
-using Domain;
-using System.Collections.Generic;
+using Domain.Teams;
+using Domain.Players;
 
 namespace Test
 {
@@ -11,316 +10,316 @@ namespace Test
         public void Deve_criar_time()
         {
             // Dado / Setup
-            var pal = new Time("Palmeiras");
+            var pal = new Team("Palmeiras");
             
             // Quando / Ação
 
             // Deve / Asserções
-            Assert.Equal("Palmeiras", pal.Nome);
-            Assert.Equal(0, pal.Jogadores.Count);
-            Assert.Equal(0, pal.Pontuacao);
-            Assert.Equal(0, pal.PartidasDisputadas);
-            Assert.Equal(0, pal.Vitorias);
-            Assert.Equal(0, pal.Derrotas);
-            Assert.Equal(0, pal.Empates);
-            Assert.Equal(0, pal.GolsPro);
-            Assert.Equal(0, pal.GolsContra);
-            Assert.Equal(0, pal.SaldoGols);
+            Assert.Equal("Palmeiras", pal.Name);
+            Assert.Equal(0, pal.Players.Count);
+            Assert.Equal(0, pal.Score);
+            Assert.Equal(0, pal.MatchsPlayeds);
+            Assert.Equal(0, pal.Wins);
+            Assert.Equal(0, pal.Defeats);
+            Assert.Equal(0, pal.Draws);
+            Assert.Equal(0, pal.GoalsPro);
+            Assert.Equal(0, pal.GoalsTaken);
+            Assert.Equal(0, pal.GoalsScore);
         }
 
         [Fact]
-        public void Deve_adicionar_jogador()
+        public void Deve_adicionar_Player()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
-            var kaka = new Jogador("kaka");
-            var kellven = new Jogador("Kellven");
+            var palmeiras = new Team("Palmeiras");
+            var kaka = new Player("kaka");
+            var kellven = new Player("Kellven");
             
             // Quando / Ação
-            palmeiras.AdicionarJogador(kaka);
-            palmeiras.AdicionarJogador(kellven);
+            palmeiras.AddPlayer(kaka);
+            palmeiras.AddPlayer(kellven);
 
             // Deve / Asserções
-            Assert.Equal("Palmeiras", palmeiras.Nome);
-            Assert.Equal(2, palmeiras.Jogadores.Count);
-            Assert.Equal("kaka", palmeiras.Jogadores[0].Nome);
-            Assert.Equal("Kellven", palmeiras.Jogadores[1].Nome);
+            Assert.Equal("Palmeiras", palmeiras.Name);
+            Assert.Equal(2, palmeiras.Players.Count);
+            Assert.Equal("kaka", palmeiras.Players[0].Name);
+            Assert.Equal("Kellven", palmeiras.Players[1].Name);
         
         }
 
         [Fact]
-        public void Deve_remover_jogador()
+        public void Deve_remover_Player()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
-            var kaka = new Jogador("kaka");
-            var kellven = new Jogador("Kellven");
-            var kellven1 = new Jogador("Kellven1");
-            var kellven2 = new Jogador("Kellven2");
-            var kellven3 = new Jogador("Kellven3");
-            var kellven4 = new Jogador("Kellven4");
-            var kellven5 = new Jogador("Kellven5");
-            var kellven6 = new Jogador("Kellven6");
-            var kellven7 = new Jogador("Kellven7");
-            var kellven8 = new Jogador("Kellven8");
-            var kellven9 = new Jogador("Kellven9");
-            var kellven10 = new Jogador("Kellven10");
-            var kellven11 = new Jogador("Kellven11");
-            var kellven12 = new Jogador("Kellven12");
-            var kellven13 = new Jogador("Kellven13");
-            var kellven14 = new Jogador("Kellven14");
-            var kellven15 = new Jogador("Kellven15");
-            var kellven16 = new Jogador("Kellven16");
-            var kellven17 = new Jogador("Kellven17");
-            var kellven18 = new Jogador("Kellven18");
-            var kellven19 = new Jogador("Kellven19");
-            var kellven20 = new Jogador("Kellven20");
-            var kellven21 = new Jogador("Kellven21");
-            var kellven22 = new Jogador("Kellven22");
-            var kellven23 = new Jogador("Kellven23");
-            var kellven24 = new Jogador("Kellven24");
-            var kellven25 = new Jogador("Kellven25");
-            var kellven26 = new Jogador("Kellven26");
-            var kellven27 = new Jogador("Kellven27");
-            var kellven28 = new Jogador("Kellven28");
-            var kellven29 = new Jogador("Kellven29");
-            var kellven30 = new Jogador("Kellven30");
+            var palmeiras = new Team("Palmeiras");
+            var kaka = new Player("kaka");
+            var kellven = new Player("Kellven");
+            var kellven1 = new Player("Kellven1");
+            var kellven2 = new Player("Kellven2");
+            var kellven3 = new Player("Kellven3");
+            var kellven4 = new Player("Kellven4");
+            var kellven5 = new Player("Kellven5");
+            var kellven6 = new Player("Kellven6");
+            var kellven7 = new Player("Kellven7");
+            var kellven8 = new Player("Kellven8");
+            var kellven9 = new Player("Kellven9");
+            var kellven10 = new Player("Kellven10");
+            var kellven11 = new Player("Kellven11");
+            var kellven12 = new Player("Kellven12");
+            var kellven13 = new Player("Kellven13");
+            var kellven14 = new Player("Kellven14");
+            var kellven15 = new Player("Kellven15");
+            var kellven16 = new Player("Kellven16");
+            var kellven17 = new Player("Kellven17");
+            var kellven18 = new Player("Kellven18");
+            var kellven19 = new Player("Kellven19");
+            var kellven20 = new Player("Kellven20");
+            var kellven21 = new Player("Kellven21");
+            var kellven22 = new Player("Kellven22");
+            var kellven23 = new Player("Kellven23");
+            var kellven24 = new Player("Kellven24");
+            var kellven25 = new Player("Kellven25");
+            var kellven26 = new Player("Kellven26");
+            var kellven27 = new Player("Kellven27");
+            var kellven28 = new Player("Kellven28");
+            var kellven29 = new Player("Kellven29");
+            var kellven30 = new Player("Kellven30");
             
-            palmeiras.AdicionarJogador(kaka);
-            palmeiras.AdicionarJogador(kellven);
-            palmeiras.AdicionarJogador(kellven1);
-            palmeiras.AdicionarJogador(kellven2);
-            palmeiras.AdicionarJogador(kellven3);
-            palmeiras.AdicionarJogador(kellven4);
-            palmeiras.AdicionarJogador(kellven5);
-            palmeiras.AdicionarJogador(kellven6);
-            palmeiras.AdicionarJogador(kellven7);
-            palmeiras.AdicionarJogador(kellven8);
-            palmeiras.AdicionarJogador(kellven9);
-            palmeiras.AdicionarJogador(kellven10);
-            palmeiras.AdicionarJogador(kellven11);
-            palmeiras.AdicionarJogador(kellven12);
-            palmeiras.AdicionarJogador(kellven13);
-            palmeiras.AdicionarJogador(kellven14);
-            palmeiras.AdicionarJogador(kellven15);
-            palmeiras.AdicionarJogador(kellven16);
-            palmeiras.AdicionarJogador(kellven17);
-            palmeiras.AdicionarJogador(kellven18);
-            palmeiras.AdicionarJogador(kellven19);
-            palmeiras.AdicionarJogador(kellven20);
-            palmeiras.AdicionarJogador(kellven21);
-            palmeiras.AdicionarJogador(kellven22);
-            palmeiras.AdicionarJogador(kellven23);
-            palmeiras.AdicionarJogador(kellven24);
-            palmeiras.AdicionarJogador(kellven25);
-            palmeiras.AdicionarJogador(kellven26);
-            palmeiras.AdicionarJogador(kellven27);
-            palmeiras.AdicionarJogador(kellven28);
-            palmeiras.AdicionarJogador(kellven29);
-            palmeiras.AdicionarJogador(kellven30);
+            palmeiras.AddPlayer(kaka);
+            palmeiras.AddPlayer(kellven);
+            palmeiras.AddPlayer(kellven1);
+            palmeiras.AddPlayer(kellven2);
+            palmeiras.AddPlayer(kellven3);
+            palmeiras.AddPlayer(kellven4);
+            palmeiras.AddPlayer(kellven5);
+            palmeiras.AddPlayer(kellven6);
+            palmeiras.AddPlayer(kellven7);
+            palmeiras.AddPlayer(kellven8);
+            palmeiras.AddPlayer(kellven9);
+            palmeiras.AddPlayer(kellven10);
+            palmeiras.AddPlayer(kellven11);
+            palmeiras.AddPlayer(kellven12);
+            palmeiras.AddPlayer(kellven13);
+            palmeiras.AddPlayer(kellven14);
+            palmeiras.AddPlayer(kellven15);
+            palmeiras.AddPlayer(kellven16);
+            palmeiras.AddPlayer(kellven17);
+            palmeiras.AddPlayer(kellven18);
+            palmeiras.AddPlayer(kellven19);
+            palmeiras.AddPlayer(kellven20);
+            palmeiras.AddPlayer(kellven21);
+            palmeiras.AddPlayer(kellven22);
+            palmeiras.AddPlayer(kellven23);
+            palmeiras.AddPlayer(kellven24);
+            palmeiras.AddPlayer(kellven25);
+            palmeiras.AddPlayer(kellven26);
+            palmeiras.AddPlayer(kellven27);
+            palmeiras.AddPlayer(kellven28);
+            palmeiras.AddPlayer(kellven29);
+            palmeiras.AddPlayer(kellven30);
 
             // Quando / Ação
-            palmeiras.RemoverJogador(kaka);
+            palmeiras.RemovePlayer(kaka);
 
             // Deve / Asserções
-            Assert.Equal(31, palmeiras.Jogadores.Count);
-            Assert.Equal("Kellven", palmeiras.Jogadores[0].Nome);
-            Assert.Equal("Kellven1", palmeiras.Jogadores[1].Nome);
+            Assert.Equal(31, palmeiras.Players.Count);
+            Assert.Equal("Kellven", palmeiras.Players[0].Name);
+            Assert.Equal("Kellven1", palmeiras.Players[1].Name);
         
         }
         
         [Fact]
-        public void Nao_Deve_remover_jogador()
+        public void Nao_Deve_remover_Player()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
-            var kaka = new Jogador("kaka");
-            var kellven = new Jogador("Kellven");
-            var kellven1 = new Jogador("kellven1");
-            var kellven2 = new Jogador("kellven2");
-            var kellven3 = new Jogador("kellven3");
-            var kellven4 = new Jogador("kellven4");
-            var kellven5 = new Jogador("kellven5");
-            var kellven6 = new Jogador("kellven6");
-            var kellven7 = new Jogador("kellven7");
-            var kellven8 = new Jogador("kellven8");
-            var kellven9 = new Jogador("Kellven9");
-            var kellven10 = new Jogador("Kellven10");
-            var kellven11 = new Jogador("Kellven11");
-            var kellven12 = new Jogador("Kellven12");
-            var kellven13 = new Jogador("Kellven13");
-            var kellven14 = new Jogador("Kellven14");
+            var palmeiras = new Team("Palmeiras");
+            var kaka = new Player("kaka");
+            var kellven = new Player("Kellven");
+            var kellven1 = new Player("kellven1");
+            var kellven2 = new Player("kellven2");
+            var kellven3 = new Player("kellven3");
+            var kellven4 = new Player("kellven4");
+            var kellven5 = new Player("kellven5");
+            var kellven6 = new Player("kellven6");
+            var kellven7 = new Player("kellven7");
+            var kellven8 = new Player("kellven8");
+            var kellven9 = new Player("Kellven9");
+            var kellven10 = new Player("Kellven10");
+            var kellven11 = new Player("Kellven11");
+            var kellven12 = new Player("Kellven12");
+            var kellven13 = new Player("Kellven13");
+            var kellven14 = new Player("Kellven14");
 
-            palmeiras.AdicionarJogador(kaka);
-            palmeiras.AdicionarJogador(kellven);
-            palmeiras.AdicionarJogador(kellven1);
-            palmeiras.AdicionarJogador(kellven2);
-            palmeiras.AdicionarJogador(kellven3);
-            palmeiras.AdicionarJogador(kellven4);
-            palmeiras.AdicionarJogador(kellven5);
-            palmeiras.AdicionarJogador(kellven6);
-            palmeiras.AdicionarJogador(kellven7);
-            palmeiras.AdicionarJogador(kellven8);
-            palmeiras.AdicionarJogador(kellven9);
-            palmeiras.AdicionarJogador(kellven10);
-            palmeiras.AdicionarJogador(kellven11);
-            palmeiras.AdicionarJogador(kellven12);
-            palmeiras.AdicionarJogador(kellven13);
-            palmeiras.AdicionarJogador(kellven14);
+            palmeiras.AddPlayer(kaka);
+            palmeiras.AddPlayer(kellven);
+            palmeiras.AddPlayer(kellven1);
+            palmeiras.AddPlayer(kellven2);
+            palmeiras.AddPlayer(kellven3);
+            palmeiras.AddPlayer(kellven4);
+            palmeiras.AddPlayer(kellven5);
+            palmeiras.AddPlayer(kellven6);
+            palmeiras.AddPlayer(kellven7);
+            palmeiras.AddPlayer(kellven8);
+            palmeiras.AddPlayer(kellven9);
+            palmeiras.AddPlayer(kellven10);
+            palmeiras.AddPlayer(kellven11);
+            palmeiras.AddPlayer(kellven12);
+            palmeiras.AddPlayer(kellven13);
+            palmeiras.AddPlayer(kellven14);
             
             // Quando / Ação
-            palmeiras.RemoverJogador(kaka);
+            palmeiras.RemovePlayer(kaka);
 
             // Deve / Asserções
-            Assert.Equal(16, palmeiras.Jogadores.Count);
-            Assert.Equal("kaka", palmeiras.Jogadores[0].Nome);
-            Assert.Equal("Kellven", palmeiras.Jogadores[1].Nome);
+            Assert.Equal(16, palmeiras.Players.Count);
+            Assert.Equal("kaka", palmeiras.Players[0].Name);
+            Assert.Equal("Kellven", palmeiras.Players[1].Name);
         }
 
         [Fact]
-        public void Nao_Deve_Adicionar_jogador()
+        public void Nao_Deve_Adicionar_Player()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
-            var kaka = new Jogador("kaka");
-            var kellven = new Jogador("Kellven");
-            var kellven1 = new Jogador("Kellven1");
-            var kellven2 = new Jogador("Kellven2");
-            var kellven3 = new Jogador("Kellven3");
-            var kellven4 = new Jogador("Kellven4");
-            var kellven5 = new Jogador("Kellven5");
-            var kellven6 = new Jogador("Kellven6");
-            var kellven7 = new Jogador("Kellven7");
-            var kellven8 = new Jogador("Kellven8");
-            var kellven9 = new Jogador("Kellven9");
-            var kellven10 = new Jogador("Kellven10");
-            var kellven11 = new Jogador("Kellven11");
-            var kellven12 = new Jogador("Kellven12");
-            var kellven13 = new Jogador("Kellven13");
-            var kellven14 = new Jogador("Kellven14");
-            var kellven15 = new Jogador("Kellven15");
-            var kellven16 = new Jogador("Kellven16");
-            var kellven17 = new Jogador("Kellven17");
-            var kellven18 = new Jogador("Kellven18");
-            var kellven19 = new Jogador("Kellven19");
-            var kellven20 = new Jogador("Kellven20");
-            var kellven21 = new Jogador("Kellven21");
-            var kellven22 = new Jogador("Kellven22");
-            var kellven23 = new Jogador("Kellven23");
-            var kellven24 = new Jogador("Kellven24");
-            var kellven25 = new Jogador("Kellven25");
-            var kellven26 = new Jogador("Kellven26");
-            var kellven27 = new Jogador("Kellven27");
-            var kellven28 = new Jogador("Kellven28");
-            var kellven29 = new Jogador("Kellven29");
-            var kellven30 = new Jogador("Kellven30");
-            var afonso = new Jogador("Afonso Padilha");
+            var palmeiras = new Team("Palmeiras");
+            var kaka = new Player("kaka");
+            var kellven = new Player("Kellven");
+            var kellven1 = new Player("Kellven1");
+            var kellven2 = new Player("Kellven2");
+            var kellven3 = new Player("Kellven3");
+            var kellven4 = new Player("Kellven4");
+            var kellven5 = new Player("Kellven5");
+            var kellven6 = new Player("Kellven6");
+            var kellven7 = new Player("Kellven7");
+            var kellven8 = new Player("Kellven8");
+            var kellven9 = new Player("Kellven9");
+            var kellven10 = new Player("Kellven10");
+            var kellven11 = new Player("Kellven11");
+            var kellven12 = new Player("Kellven12");
+            var kellven13 = new Player("Kellven13");
+            var kellven14 = new Player("Kellven14");
+            var kellven15 = new Player("Kellven15");
+            var kellven16 = new Player("Kellven16");
+            var kellven17 = new Player("Kellven17");
+            var kellven18 = new Player("Kellven18");
+            var kellven19 = new Player("Kellven19");
+            var kellven20 = new Player("Kellven20");
+            var kellven21 = new Player("Kellven21");
+            var kellven22 = new Player("Kellven22");
+            var kellven23 = new Player("Kellven23");
+            var kellven24 = new Player("Kellven24");
+            var kellven25 = new Player("Kellven25");
+            var kellven26 = new Player("Kellven26");
+            var kellven27 = new Player("Kellven27");
+            var kellven28 = new Player("Kellven28");
+            var kellven29 = new Player("Kellven29");
+            var kellven30 = new Player("Kellven30");
+            var afonso = new Player("Afonso Padilha");
             
-            palmeiras.AdicionarJogador(kaka);
-            palmeiras.AdicionarJogador(kellven);
-            palmeiras.AdicionarJogador(kellven1);
-            palmeiras.AdicionarJogador(kellven2);
-            palmeiras.AdicionarJogador(kellven3);
-            palmeiras.AdicionarJogador(kellven4);
-            palmeiras.AdicionarJogador(kellven5);
-            palmeiras.AdicionarJogador(kellven6);
-            palmeiras.AdicionarJogador(kellven7);
-            palmeiras.AdicionarJogador(kellven8);
-            palmeiras.AdicionarJogador(kellven9);
-            palmeiras.AdicionarJogador(kellven10);
-            palmeiras.AdicionarJogador(kellven11);
-            palmeiras.AdicionarJogador(kellven12);
-            palmeiras.AdicionarJogador(kellven13);
-            palmeiras.AdicionarJogador(kellven14);
-            palmeiras.AdicionarJogador(kellven15);
-            palmeiras.AdicionarJogador(kellven16);
-            palmeiras.AdicionarJogador(kellven17);
-            palmeiras.AdicionarJogador(kellven18);
-            palmeiras.AdicionarJogador(kellven19);
-            palmeiras.AdicionarJogador(kellven20);
-            palmeiras.AdicionarJogador(kellven21);
-            palmeiras.AdicionarJogador(kellven22);
-            palmeiras.AdicionarJogador(kellven23);
-            palmeiras.AdicionarJogador(kellven24);
-            palmeiras.AdicionarJogador(kellven25);
-            palmeiras.AdicionarJogador(kellven26);
-            palmeiras.AdicionarJogador(kellven27);
-            palmeiras.AdicionarJogador(kellven28);
-            palmeiras.AdicionarJogador(kellven29);
-            palmeiras.AdicionarJogador(kellven30);
+            palmeiras.AddPlayer(kaka);
+            palmeiras.AddPlayer(kellven);
+            palmeiras.AddPlayer(kellven1);
+            palmeiras.AddPlayer(kellven2);
+            palmeiras.AddPlayer(kellven3);
+            palmeiras.AddPlayer(kellven4);
+            palmeiras.AddPlayer(kellven5);
+            palmeiras.AddPlayer(kellven6);
+            palmeiras.AddPlayer(kellven7);
+            palmeiras.AddPlayer(kellven8);
+            palmeiras.AddPlayer(kellven9);
+            palmeiras.AddPlayer(kellven10);
+            palmeiras.AddPlayer(kellven11);
+            palmeiras.AddPlayer(kellven12);
+            palmeiras.AddPlayer(kellven13);
+            palmeiras.AddPlayer(kellven14);
+            palmeiras.AddPlayer(kellven15);
+            palmeiras.AddPlayer(kellven16);
+            palmeiras.AddPlayer(kellven17);
+            palmeiras.AddPlayer(kellven18);
+            palmeiras.AddPlayer(kellven19);
+            palmeiras.AddPlayer(kellven20);
+            palmeiras.AddPlayer(kellven21);
+            palmeiras.AddPlayer(kellven22);
+            palmeiras.AddPlayer(kellven23);
+            palmeiras.AddPlayer(kellven24);
+            palmeiras.AddPlayer(kellven25);
+            palmeiras.AddPlayer(kellven26);
+            palmeiras.AddPlayer(kellven27);
+            palmeiras.AddPlayer(kellven28);
+            palmeiras.AddPlayer(kellven29);
+            palmeiras.AddPlayer(kellven30);
 
             // Quando / Ação
-            palmeiras.AdicionarJogador(afonso);
+            palmeiras.AddPlayer(afonso);
 
             // Deve / Asserções
-            Assert.Equal(32, palmeiras.Jogadores.Count);
+            Assert.Equal(32, palmeiras.Players.Count);
         }
 
         [Fact]
         public void Deve_Adicionar_2_gols_para_palmeiras()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
+            var palmeiras = new Team("Palmeiras");
 
             // Quando / Ação
-            palmeiras.AdicionarGol();
-            palmeiras.AdicionarGol();
+            palmeiras.AddGoal();
+            palmeiras.AddGoal();
 
             // Deve / Asserções
-            Assert.Equal(2, palmeiras.GolsPro);
+            Assert.Equal(2, palmeiras.GoalsPro);
         }
             [Fact]
         public void Deve_Adicionar_vitoria_para_palmeiras()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
+            var palmeiras = new Team("Palmeiras");
 
             // Quando / Ação
-            palmeiras.ReceberVitoria();
+            palmeiras.AddWin();
 
             // Deve / Asserções
-            Assert.Equal(1, palmeiras.Vitorias);
+            Assert.Equal(1, palmeiras.Wins);
         }
 
         [Fact]
         public void Deve_Adicionar_derrota_para_palmeiras()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
+            var palmeiras = new Team("Palmeiras");
 
             // Quando / Ação
-            palmeiras.AdicionarDerrotas();
+            palmeiras.AddDefeat();
 
             // Deve / Asserções
-            Assert.Equal(1, palmeiras.Derrotas);
+            Assert.Equal(1, palmeiras.Defeats);
         }
         
         [Fact]
         public void Deve_Levar_3_Gols_para_palmeiras()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
+            var palmeiras = new Team("Palmeiras");
 
             // Quando / Ação
-            palmeiras.LevarGol();
-            palmeiras.LevarGol();
-            palmeiras.LevarGol();
+            palmeiras.TakeGoal();
+            palmeiras.TakeGoal();
+            palmeiras.TakeGoal();
 
             // Deve / Asserções
-            Assert.Equal(3, palmeiras.GolsContra);
+            Assert.Equal(3, palmeiras.GoalsTaken);
         }
 
          [Fact]
         public void Deve_adicionar_empate_para_palmeiras()
         {
             // Dado / Setup
-            var palmeiras = new Time("Palmeiras");
+            var palmeiras = new Team("Palmeiras");
 
             // Quando / Ação
-            palmeiras.AdicionarEmpate();
+            palmeiras.AddDraw();
 
             // Deve / Asserções
-            Assert.Equal(1, palmeiras.Empates);
+            Assert.Equal(1, palmeiras.Draws);
         }
     }
 }

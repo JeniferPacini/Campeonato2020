@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Domain.Usuarios;
+using Domain.Users;
 using WebAPI.Controllers.Users;
-using System.Collections.Generic;
-using System;
 
 namespace WebAPI.Controllers.Usuarios
 {
@@ -10,11 +8,11 @@ namespace WebAPI.Controllers.Usuarios
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly ServicoUsuarios _servicoUsuarios;
+        private readonly UsersService _usersService;
 
         public UsersController()
         {
-            _servicoUsuarios = new ServicoUsuarios();
+            _usersService = new UsersService();
         }
 
         [HttpPost]
@@ -25,14 +23,14 @@ namespace WebAPI.Controllers.Usuarios
                 return Unauthorized();
             }
     
-            var resposta = _servicoUsuarios.Create(request.Nome,request.CBF);
+            var response = _usersService.Create(request.Name,request.CBF);
 
-            if(!resposta.Valido)
+            if(!response.IsValid)
             {
-                return BadRequest(resposta.Erros);
+                return BadRequest(response.Errors);
             }
 
-            return Ok(resposta.Id);
+            return Ok(response.Id);
         }
         // [HttpGet]
         // public List<Usuario> Get()

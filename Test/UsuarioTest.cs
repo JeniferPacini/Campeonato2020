@@ -1,8 +1,6 @@
-using System;
 using Xunit;
-using Domain;
 using System.Collections.Generic;
-using Domain.Usuarios;
+using Domain.Users;
 
 namespace Test
 {
@@ -13,17 +11,17 @@ namespace Test
         {
             // Dado / Setup
             //var campeonato = new Campeonato();
-            var cbf = new Usuario("Jenifer Pacini", true);
-            var torcedor = new Usuario("Afonso Padilha", false);
+            var cbf = new User("Jenifer Pacini", true);
+            var torcedor = new User("Afonso Padilha", false);
             
             // Quando / Ação
-            var usuario = new List<Usuario>{cbf,torcedor};
+            var user = new List<User>{cbf,torcedor};
 
             // Deve / Asserções
-            Assert.Equal("Jenifer Pacini",usuario[0].Nome);
-            Assert.Equal("Afonso Padilha",usuario[1].Nome);
-            Assert.True(usuario[0].CBF);
-            Assert.False(usuario[1].CBF);
+            Assert.Equal("Jenifer Pacini",user[0].Name);
+            Assert.Equal("Afonso Padilha",user[1].Name);
+            Assert.True(user[0].CBF);
+            Assert.False(user[1].CBF);
         }
     }
 }

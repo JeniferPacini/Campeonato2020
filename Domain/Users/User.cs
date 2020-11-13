@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Domain.Usuarios
+namespace Domain.Users
 {
-    public class Usuario
+    public class User
     {
         public Guid Id{get; private set;}
-        public string Nome{get; private set;}
+        public string Name{get; private set;}
         public bool CBF{get; private set;}
 
-        public Usuario (string nome, bool cbf)
+        public User (string nome, bool cbf)
         {
             this.Id = Guid.NewGuid();
-            this.Nome = nome;
+            this.Name = nome;
             this.CBF = cbf; 
         }
 
-        private bool ValidarNome()
+        private bool ValidateNome()
         {
-            if (string.IsNullOrEmpty(Nome))
+            if (string.IsNullOrEmpty(Name))
             {
                 return false;
             }
 
-            var words = Nome.Split(' ');
+            var words = Name.Split(' ');
             if (words.Length < 2)
             {
                 return false;
@@ -45,14 +45,14 @@ namespace Domain.Usuarios
             return true;
         }
     
-        public (IList<string> erros, bool valido) Validar()
+        public (IList<string> errors, bool isValid) Validate()
         {
-            var erros = new List<string>();
-            if (!ValidarNome())
+            var errors = new List<string>();
+            if (!ValidateNome())
             {
-                erros.Add("Nome inválido.");
+                errors.Add("Nome inválido.");
             }
-            return (erros, erros.Count == 0);
+            return (errors, errors.Count == 0);
         }
     }
 }
