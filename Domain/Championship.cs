@@ -50,9 +50,14 @@ namespace Domain
                 }
             }
 
+            if(listTeams.Count < 8)
+            {
+                return false;
+            }
+
             for(int i = 0; i < listTeams.Count; i++)
             {
-                for(int j = 0; j < listTeams.Count; j++)
+                for(var j = listTeams.Count-1; j >= 0; j--)
                 {
                     if(listTeams[i].Id != listTeams[j].Id && listTeams[i] != null && listTeams[j] != null)
                     {
